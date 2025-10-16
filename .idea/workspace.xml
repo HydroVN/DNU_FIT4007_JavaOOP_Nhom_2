@@ -4,8 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1a89d8b-39aa-4460-9789-9675793c35cf" name="Changes" comment="Test Database SQL Server">
-      <change beforePath="$PROJECT_DIR$/src/main/java/exception/SeatAlreadyBookedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exception/SeatAlreadyBookedException.java" afterDir="false" />
+    <list default="true" id="a1a89d8b-39aa-4460-9789-9675793c35cf" name="Changes" comment="Cập nhật ngoại lệ">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ReportDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/manager/InvoiceManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/manager/RoomManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/manager/SeatManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/manager/ShowManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/manager/TicketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mssql_jdbc_13_2_0_jre11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MovieDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SeatDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SeatDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/MovieManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/ReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/ReportManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Seat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Showtime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Showtime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/StandardSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/StandardSeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VipSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/VipSeat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +78,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -100,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759846411663</updated>
-      <workItem from="1760621264949" duration="534000" />
+      <workItem from="1760621264949" duration="4954000" />
     </task>
     <task id="LOCAL-00001" summary="đẩy cấu trúc bài">
       <created>1759846523145</created>
@@ -116,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759852843506</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cập nhật ngoại lệ">
+      <option name="closed" value="true" />
+      <created>1760622014357</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760622014357</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +167,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="đẩy cấu trúc bài" />
     <MESSAGE value="Test Database SQL Server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Database SQL Server" />
+    <MESSAGE value="Cập nhật ngoại lệ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cập nhật ngoại lệ" />
   </component>
 </project>

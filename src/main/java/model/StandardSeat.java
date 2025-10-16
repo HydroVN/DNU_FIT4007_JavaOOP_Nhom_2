@@ -1,4 +1,13 @@
 package main.java.model;
 
-public class StandardSeat {
+public class StandardSeat extends Seat {
+
+    public StandardSeat(int seatId, int roomId, String row, int column) {
+        super(seatId, roomId, row, column, "Thuong");
+    }
+
+    @Override
+    public double getPrice(double basePrice) {
+        return basePrice; // Không phụ thu
+    }
 }
