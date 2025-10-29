@@ -34,7 +34,7 @@ public class TicketManager {
                         rs.getString("SoHang"), rs.getInt("SoCot"), rs.getDouble("GiaVe"));
             }
         } catch (SQLException e) {
-            System.out.println("❌ Lỗi vé: " + e.getMessage());
+            System.out.println("Lỗi vé: " + e.getMessage());
         }
     }
 }

@@ -4,30 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1a89d8b-39aa-4460-9789-9675793c35cf" name="Changes" comment="Cập nhật ngoại lệ">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ReportDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/manager/InvoiceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/manager/RoomManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/manager/SeatManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/manager/ShowManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/manager/TicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mssql_jdbc_13_2_0_jre11.xml" beforeDir="false" />
+    <list default="true" id="a1a89d8b-39aa-4460-9789-9675793c35cf" name="Changes" comment="Cập nhật DAO, model, manager và test demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MovieDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/SeatDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SeatDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ShowtimeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ShowtimeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/manager/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/CustomerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/manager/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/manager/ReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/ReportManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Showtime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Showtime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/StandardSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/StandardSeat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/VipSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/VipSeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/ShowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/TicketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,30 +31,30 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Demo" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "HydroVN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HydroVN&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/HydroVN/DNU_FIT4007_JavaOOP_Nhom_2.git",
-    "accountId": "9c82ced9-f09f-4025-96d0-87cd27ea58b3"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/HydroVN/DNU_FIT4007_JavaOOP_Nhom_2.git&quot;,
+    &quot;accountId&quot;: &quot;9c82ced9-f09f-4025-96d0-87cd27ea58b3&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="33k1m8fL1qIBAbSckxv1tl0f3yc" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -76,29 +63,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#2 on Van",
-    "jdk.selected.JAVA_MODULE": "19",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/sqljdbc_13.2.0.0_enu/sqljdbc_13.2/enu/jars/mssql-jdbc-13.2.0.jre11.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#2 on Van&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/sqljdbc_13.2.0.0_enu/sqljdbc_13.2/enu/jars/mssql-jdbc-13.2.0.jre11.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="main.java.dao" />
@@ -123,7 +110,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759846411663</updated>
-      <workItem from="1760621264949" duration="4954000" />
+      <workItem from="1760621264949" duration="5272000" />
+      <workItem from="1760627453471" duration="217000" />
+      <workItem from="1761117588730" duration="4000" />
+      <workItem from="1761719920260" duration="310000" />
+      <workItem from="1761720444803" duration="3981000" />
     </task>
     <task id="LOCAL-00001" summary="đẩy cấu trúc bài">
       <created>1759846523145</created>
@@ -147,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760622014357</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cập nhật DAO, model, manager và test demo">
+      <option name="closed" value="true" />
+      <created>1760626622115</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760626622115</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +167,7 @@
     <MESSAGE value="đẩy cấu trúc bài" />
     <MESSAGE value="Test Database SQL Server" />
     <MESSAGE value="Cập nhật ngoại lệ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cập nhật ngoại lệ" />
+    <MESSAGE value="Cập nhật DAO, model, manager và test demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cập nhật DAO, model, manager và test demo" />
   </component>
 </project>

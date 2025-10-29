@@ -34,4 +34,11 @@ public class Room {
     public void setSeatCount(int seatCount) {
         this.seatCount = seatCount;
     }
+    @Override
+    public String toString() {
+        return "Phòng [Mã: " + roomId +
+                ", Tên: '" + roomName + '\'' +
+                ", Số ghế: " + seatCount +
+                ']';
+    }
 }

@@ -32,7 +32,31 @@ public class MovieDAO {
         }
         return movies;
     }
+    public Movie getMovieById(int id) throws DatabaseException {
+        String sql = "SELECT * FROM Phim WHERE MaPhim = ?";
+        Movie movie = null;
 
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                movie = new Movie(
+                        rs.getInt("MaPhim"),
+                        rs.getString("TenPhim"),
+                        rs.getString("TheLoai"),
+                        rs.getInt("ThoiLuong"),
+                        rs.getString("DoTuoi"),
+                        rs.getDouble("GiaVeCoBan")
+                );
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Lỗi khi tìm phim: " + e.getMessage());
+        }
+        return movie; // Trả về null nếu không tìm thấy
+    }
     public void addMovie(Movie m) throws DatabaseException {
         String sql = "INSERT INTO Phim VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();

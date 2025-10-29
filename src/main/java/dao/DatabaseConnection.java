@@ -13,7 +13,6 @@ public class DatabaseConnection {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Kết nối SQL Server thành công!");
             return conn;
         } catch (ClassNotFoundException e) {
             System.out.println("Không tìm thấy JDBC Driver!");

@@ -29,7 +29,7 @@ public class ShowManager {
                         rs.getString("TenPhong"), rs.getString("GioBatDau"), rs.getString("GioKetThuc"));
             }
         } catch (SQLException e) {
-            System.out.println("❌ Lỗi suất chiếu: " + e.getMessage());
+            System.out.println("Lỗi suất chiếu: " + e.getMessage());
         }
     }
 }

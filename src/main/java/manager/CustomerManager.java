@@ -39,10 +39,10 @@ public class CustomerManager {
                 System.out.printf("%s - %s - %s\n",
                         rs.getString("HoTen"), rs.getString("SDT"), rs.getString("LoaiThanhVien"));
             }
-            if (!found) System.out.println("⚠️ Không tìm thấy khách hàng nào phù hợp.");
+            if (!found) System.out.println("Không tìm thấy khách hàng nào phù hợp.");
 
         } catch (SQLException e) {
-            System.out.println("❌ Lỗi tìm khách hàng: " + e.getMessage());
+            System.out.println("Lỗi tìm khách hàng: " + e.getMessage());
         }
     }
 }
