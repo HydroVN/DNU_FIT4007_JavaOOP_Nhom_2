@@ -37,13 +37,13 @@ public class Main {
             System.out.println("4. Thêm phim mới");
             System.out.println("5. Xóa phim");
             System.out.println("6. Xem danh sách phim");
-            System.out.println("7. Xem danh sách phòng chiếu (3NF)");
+            System.out.println("7. Xem danh sách phòng chiếu");
             System.out.println("8. Xem danh sách ghế trong phòng");
             System.out.println("9. Thêm suất chiếu");
             System.out.println("10. Xóa suất chiếu");
             System.out.println("11. Xem danh sách suất chiếu");
-            System.out.println("12. Báo cáo doanh thu theo tháng (3NF)");
-            System.out.println("13. Top 3 phim có doanh thu cao nhất (3NF)");
+            System.out.println("12. Báo cáo doanh thu theo tháng");
+            System.out.println("13. Top 3 phim có doanh thu cao nhất ");
             System.out.println("14. Danh sách ghế đã đặt của 1 suất chiếu");
             System.out.println("15. Tạo Hóa Đơn (Đặt vé)");
             System.out.println("0. Thoát chương trình");
@@ -76,8 +76,12 @@ public class Main {
                     case 2 -> {
                         System.out.print("Nhập mã KH cần xóa: ");
                         int id = Integer.parseInt(sc.nextLine());
-                        customerDAO.deleteCustomer(id);
-                        System.out.println("Xóa khách hàng thành công!");
+                        boolean success = customerDAO.deleteCustomer(id);
+                        if (success) {
+                            System.out.println("Xóa khách hàng thành công!");
+                        } else {
+                            System.out.println("Xóa thất bại! Không tìm thấy khách hàng có mã: " + id);
+                        }
                     }
                     case 3 -> {
                         CustomerManager.showAllCustomers();
@@ -101,8 +105,12 @@ public class Main {
                     case 5 -> {
                         System.out.print("Nhập mã phim cần xóa: ");
                         int id = Integer.parseInt(sc.nextLine());
-                        movieDAO.deleteMovie(id);
-                        System.out.println("Xóa phim thành công!");
+                        boolean success = movieDAO.deleteMovie(id);
+                        if (success) {
+                            System.out.println("Xóa phim thành công!");
+                        } else {
+                            System.out.println("Xóa thất bại! Không tìm thấy phim có mã: " + id);
+                        }
                     }
                     case 6 -> {
                         MovieManager.showAllMovies();
@@ -110,7 +118,9 @@ public class Main {
                     case 7 -> {
                         List<Room> list = roomDAO.getAllRooms();
                         System.out.println("===== DANH SÁCH PHÒNG CHIẾU =====");
-                        list.forEach(System.out::println);
+                        for (Room room : list) {
+                            System.out.println(room.getRoomName());
+                        }
                     }
                     case 8 -> {
                         System.out.print("Nhập mã phòng (roomId) cần xem: ");
@@ -192,7 +202,13 @@ public class Main {
                     case 14 -> {
                         System.out.print("Nhập mã suất chiếu: ");
                         int showId = Integer.parseInt(sc.nextLine());
-                        reportManager.listBookedSeats(showId);
+
+                        Showtime showtime = showDAO.getShowtimeById(showId);
+                        if (showtime == null) {
+                            System.out.println("Không tìm thấy suất chiếu có mã: " + showId);
+                        } else {
+                            reportManager.listBookedSeats(showId);
+                        }
                     }
                     case 15 -> {
                         System.out.println("--- Tạo Hóa Đơn Mới ---");
@@ -202,6 +218,13 @@ public class Main {
                         int customerId = Integer.parseInt(sc.nextLine());
                         System.out.print("Nhập Mã Suất Chiếu (MaSuat): ");
                         int showtimeId = Integer.parseInt(sc.nextLine());
+
+                        Showtime showtime = showDAO.getShowtimeById(showtimeId);
+                        if (showtime == null) {
+                            throw new Exception("Lỗi: Không tìm thấy suất chiếu " + showtimeId);
+                        }
+                        int roomId = showtime.getRoomId();
+                        System.out.println("Suất chiếu này thuộc Phòng " + roomId + ". Mã ghế phải bắt đầu bằng số " + roomId + " (ví dụ: " + roomId + "01, " + roomId + "02...)");
 
                         System.out.print("Bạn muốn đặt bao nhiêu vé? ");
                         int soLuongVe = Integer.parseInt(sc.nextLine());
@@ -213,8 +236,14 @@ public class Main {
                             System.out.println("--- Vé thứ " + (i + 1) + " ---");
                             System.out.print("Nhập Mã Vé mới: ");
                             ticketIds.add(Integer.parseInt(sc.nextLine()));
-                            System.out.print("Nhập Mã Ghế (MaGhe): ");
-                            seatIds.add(Integer.parseInt(sc.nextLine()));
+
+                            System.out.print("Nhập Mã Ghế (vd: " + roomId + "01): ");
+                            int seatId = Integer.parseInt(sc.nextLine());
+
+                            if (seatId / 100 != roomId) {
+                                throw new Exception("Lỗi: Ghế " + seatId + " không thuộc Phòng " + roomId + "!");
+                            }
+                            seatIds.add(seatId);
                         }
 
                         BookingManager.createBooking(newInvoiceId, customerId, showtimeId, seatIds, ticketIds);
@@ -234,8 +263,7 @@ public class Main {
             } catch (DatabaseException e) {
                 System.err.println("Lỗi CSDL: " + e.getMessage());
             } catch (Exception e) {
-                System.err.println("Lỗi không xác định: " + e.getMessage());
-                e.printStackTrace();
+                System.err.println(e.getMessage());
             }
         }
     }

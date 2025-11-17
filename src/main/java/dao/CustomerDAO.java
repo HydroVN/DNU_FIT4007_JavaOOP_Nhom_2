@@ -48,13 +48,14 @@ public class CustomerDAO {
         }
     }
 
-    public void deleteCustomer(int id) throws DatabaseException {
+    public boolean deleteCustomer(int id) throws DatabaseException {
         String sql = "DELETE FROM KhachHang WHERE MaKH = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, id);
-            ps.executeUpdate();
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
 
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi xóa khách hàng: " + e.getMessage());

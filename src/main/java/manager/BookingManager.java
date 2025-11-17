@@ -104,6 +104,11 @@ public class BookingManager {
         TicketDAO ticketDAO = new TicketDAO();
         InvoiceDAO invoiceDAO = new InvoiceDAO();
 
+        Showtime showtime = showtimeDAO.getShowtimeById(showtimeId);
+        if (showtime == null) {
+            throw new Exception("Không tìm thấy suất chiếu " + showtimeId);
+        }
+
         List<Ticket> existingTickets = ticketDAO.getTicketsByShowtimeId(showtimeId);
         for (int seatId : seatIds) {
             for (Ticket existingTicket : existingTickets) {
@@ -114,10 +119,6 @@ public class BookingManager {
             }
         }
 
-        Showtime showtime = showtimeDAO.getShowtimeById(showtimeId);
-        if (showtime == null) {
-            throw new Exception("Không tìm thấy suất chiếu " + showtimeId);
-        }
         Movie movie = movieDAO.getMovieById(showtime.getMovieId());
         if (movie == null) {
             throw new Exception("Không tìm thấy phim " + showtime.getMovieId());
@@ -130,10 +131,16 @@ public class BookingManager {
         for (int i = 0; i < seatIds.size(); i++) {
             int seatId = seatIds.get(i);
             int ticketId = ticketIds.get(i);
+
             Seat seat = seatDAO.getSeatById(seatId);
             if (seat == null) {
                 throw new Exception("Không tìm thấy ghế " + seatId);
             }
+
+            if (seat.getRoomId() != showtime.getRoomId()) {
+                throw new Exception("Lỗi Logic: Ghế " + seatId + " (Phòng " + seat.getRoomId() + ") không thuộc phòng của suất chiếu (Phòng " + showtime.getRoomId() + ").");
+            }
+
             double finalPrice = seat.getPrice(basePrice);
             totalAmount += finalPrice;
             Ticket newTicket = new Ticket(ticketId, showtimeId, seatId, customerId, finalPrice, "DaThanhToan");
