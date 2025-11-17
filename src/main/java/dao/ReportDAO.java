@@ -14,7 +14,6 @@ import java.util.Map;
 public class ReportDAO {
 
     public List<Map<String, Object>> getMovieRevenueReport() throws DatabaseException {
-        // Thay vì List<MovieRevenueReport>, ta dùng List<Map<...>>
         List<Map<String, Object>> report = new ArrayList<>();
 
         String sql = "SELECT " +
@@ -32,15 +31,10 @@ public class ReportDAO {
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                // Tạo một Map để chứa kết quả của 1 hàng
                 Map<String, Object> row = new HashMap<>();
-
-                // Đưa dữ liệu vào Map với các key tương ứng
                 row.put("tenPhim", rs.getString("TenPhim"));
                 row.put("soVeBan", rs.getInt("SoVeBan"));
                 row.put("tongDoanhThu", rs.getDouble("TongDoanhThu"));
-
-                // Thêm Map này vào danh sách kết quả
                 report.add(row);
             }
 
@@ -51,7 +45,14 @@ public class ReportDAO {
     }
 
     public double getDailyRevenue(LocalDate date) throws DatabaseException {
-        String sql = "SELECT SUM(TongTien) AS DoanhThuNgay FROM HoaDon WHERE CONVERT(date, NgayLap) = ?";
+        String sql = """
+            SELECT SUM(v.GiaVe) AS DoanhThuNgay
+            FROM HoaDon h
+            JOIN ChiTietHoaDon cthd ON h.MaHD = cthd.MaHD
+            JOIN Ve v ON cthd.MaVe = v.MaVe
+            WHERE CONVERT(date, h.NgayLap) = ?
+        """;
+
         double dailyRevenue = 0.0;
 
         try (Connection conn = DatabaseConnection.getConnection();
