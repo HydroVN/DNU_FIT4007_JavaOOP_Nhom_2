@@ -16,11 +16,10 @@ public class SeatManager {
         this.seatDAO = new SeatDAO();
     }
 
-    // Lấy danh sách tất cả ghế từ DB
     public List<Seat> getAllSeats() throws DatabaseException {
         List<Seat> seats = new ArrayList<>();
         seatDAO.getAllSeats().forEach(g -> {
-            if (g.getSeatType().equalsIgnoreCase("VIP"))
+            if (g.getMaLoaiGhe() == 2)
                 seats.add(new VipSeat(g.getSeatId(), g.getRoomId(), g.getRow(), g.getColumn()));
             else
                 seats.add(new StandardSeat(g.getSeatId(), g.getRoomId(), g.getRow(), g.getColumn()));
@@ -28,17 +27,14 @@ public class SeatManager {
         return seats;
     }
 
-    // Tính giá vé ghế theo loại
     public double calculateSeatPrice(Seat seat, double basePrice) {
         return seat.getPrice(basePrice);
     }
 
-    // Tìm ghế theo mã
     public Seat findSeatById(int seatId) throws DatabaseException {
         return seatDAO.getSeatById(seatId);
     }
 
-    // Hiển thị tất cả ghế
     public void displayAllSeats() throws DatabaseException {
         List<Seat> seats = getAllSeats();
         System.out.println("===== DANH SÁCH GHẾ =====");

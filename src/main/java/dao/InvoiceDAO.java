@@ -10,17 +10,14 @@ import java.util.List;
 public class InvoiceDAO {
 
     public void addInvoice(Invoice invoice) throws DatabaseException {
-        String sql = "INSERT INTO HoaDon (MaHoaDon, MaKH, NgayLap, TongTien) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO HoaDon (MaHD, MaKH, NgayLap) VALUES (?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, invoice.getInvoiceId());
             ps.setInt(2, invoice.getCustomerId());
-            // Sửa tên hàm cho đúng: getCreatedDate()
             ps.setTimestamp(3, java.sql.Timestamp.valueOf(invoice.getCreatedDate()));
-            ps.setDouble(4, invoice.getTotalAmount());
-
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -28,8 +25,20 @@ public class InvoiceDAO {
         }
     }
 
+    public void linkTicketToInvoice(int maHD, int maVe) throws DatabaseException {
+        String sql = "INSERT INTO ChiTietHoaDon (MaHD, MaVe) VALUES (?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, maHD);
+            ps.setInt(2, maVe);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DatabaseException("Lỗi khi liên kết vé vào hóa đơn: " + e.getMessage());
+        }
+    }
+
     public Invoice getInvoiceById(int id) throws DatabaseException {
-        String sql = "SELECT * FROM HoaDon WHERE MaHoaDon = ?";
+        String sql = "SELECT * FROM HoaDon WHERE MaHD = ?";
         Invoice invoice = null;
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -39,16 +48,11 @@ public class InvoiceDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                int maHoaDon = rs.getInt("MaHoaDon");
+                int maHoaDon = rs.getInt("MaHD");
                 int maKH = rs.getInt("MaKH");
                 LocalDateTime ngayLap = rs.getTimestamp("NgayLap").toLocalDateTime();
-                double tongTien = rs.getDouble("TongTien");
-
-                // Dùng constructor, nhưng truyền danh sách vé là null
-                // Lớp DAO không chịu trách nhiệm lấy dữ liệu liên kết
-                invoice = new Invoice(maHoaDon, maKH, ngayLap, tongTien, null);
+                invoice = new Invoice(maHoaDon, maKH, ngayLap, null);
             }
-
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi tìm hóa đơn: " + e.getMessage());
         }
@@ -67,14 +71,12 @@ public class InvoiceDAO {
 
             while (rs.next()) {
                 invoices.add(new Invoice(
-                        rs.getInt("MaHoaDon"),
+                        rs.getInt("MaHD"),
                         rs.getInt("MaKH"),
                         rs.getTimestamp("NgayLap").toLocalDateTime(),
-                        rs.getDouble("TongTien"),
-                        null // Không tải danh sách vé ở đây
+                        null
                 ));
             }
-
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi lấy hóa đơn của khách hàng: " + e.getMessage());
         }

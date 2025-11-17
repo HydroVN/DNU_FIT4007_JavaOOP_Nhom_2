@@ -1,21 +1,18 @@
 package main.java.model;
 
-/**
- * Lớp đại diện cho đối tượng Khách Hàng.
- */
 public class Customer {
     private int customerId;
     private String fullName;
     private String phone;
     private String email;
-    private String memberType;
+    private int maLoaiTV;
 
-    public Customer(int customerId, String fullName, String phone, String email, String memberType) {
+    public Customer(int customerId, String fullName, String phone, String email, int maLoaiTV) {
         this.customerId = customerId;
         this.fullName = fullName;
         this.phone = phone;
         this.email = email;
-        this.memberType = memberType;
+        this.maLoaiTV = maLoaiTV;
     }
 
     public int getCustomerId() {
@@ -50,16 +47,16 @@ public class Customer {
         this.email = email;
     }
 
-    public String getMemberType() {
-        return memberType;
+    public int getMaLoaiTV() {
+        return maLoaiTV;
     }
 
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
+    public void setMaLoaiTV(int maLoaiTV) {
+        this.maLoaiTV = maLoaiTV;
     }
 
     @Override
     public String toString() {
-        return "Khách hàng: " + fullName + " (" + memberType + ")";
+        return "Khách hàng: " + fullName + " (Loại: " + maLoaiTV + ")";
     }
 }

@@ -3,12 +3,10 @@ package main.java.model;
 public class Room {
     private int roomId;
     private String roomName;
-    private int seatCount;
 
-    public Room(int roomId, String roomName, int seatCount) {
+    public Room(int roomId, String roomName) {
         this.roomId = roomId;
         this.roomName = roomName;
-        this.seatCount = seatCount;
     }
 
     public int getRoomId() {
@@ -27,18 +25,10 @@ public class Room {
         this.roomName = roomName;
     }
 
-    public int getSeatCount() {
-        return seatCount;
-    }
-
-    public void setSeatCount(int seatCount) {
-        this.seatCount = seatCount;
-    }
     @Override
     public String toString() {
         return "Phòng [Mã: " + roomId +
                 ", Tên: '" + roomName + '\'' +
-                ", Số ghế: " + seatCount +
                 ']';
     }
 }

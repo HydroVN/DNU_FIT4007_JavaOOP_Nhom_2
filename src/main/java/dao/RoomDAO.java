@@ -10,7 +10,7 @@ public class RoomDAO {
 
     public List<Room> getAllRooms() throws DatabaseException {
         List<Room> rooms = new ArrayList<>();
-        String sql = "SELECT * FROM PhongChieu";
+        String sql = "SELECT MaPhong, TenPhong FROM PhongChieu";
 
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement();
@@ -19,14 +19,33 @@ public class RoomDAO {
             while (rs.next()) {
                 rooms.add(new Room(
                         rs.getInt("MaPhong"),
-                        rs.getString("TenPhong"),
-                        rs.getInt("SoGhe")
+                        rs.getString("TenPhong")
                 ));
             }
-
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi lấy danh sách phòng: " + e.getMessage());
         }
         return rooms;
+    }
+
+    public Room getRoomById(int id) throws DatabaseException {
+        String sql = "SELECT MaPhong, TenPhong FROM PhongChieu WHERE MaPhong = ?";
+        Room room = null;
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                room = new Room(
+                        rs.getInt("MaPhong"),
+                        rs.getString("TenPhong")
+                );
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Lỗi khi lấy phòng: " + e.getMessage());
+        }
+        return room;
     }
 }

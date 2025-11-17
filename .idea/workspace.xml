@@ -7,10 +7,29 @@
     <list default="true" id="a1a89d8b-39aa-4460-9789-9675793c35cf" name="Changes" comment="Cập nhật DAO, model, manager và test demo">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CustomerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/InvoiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InvoiceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ReportDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ReportDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MovieDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SeatDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SeatDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/TicketDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TicketDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/manager/BookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/BookingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/InvoiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/InvoiceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/MovieManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/ReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/ReportManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/RoomManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/SeatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/SeatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/TicketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Seat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/StandardSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/StandardSeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VipSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/VipSeat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +60,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/HydroVN/DNU_FIT4007_JavaOOP_Nhom_2.git",
-    "accountId": "842088b3-da7c-4db0-ba73-84e581fec018"
+    "accountId": "9c82ced9-f09f-4025-96d0-87cd27ea58b3"
   }
 }]]></component>
   <component name="MarkdownSettingsMigration">
@@ -66,7 +85,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Kien",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "#2 on Van",
     "jdk.selected.JAVA_MODULE": "19",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -90,6 +110,14 @@
       <recent name="D:\CinemaBookingApp_OOP_BTL\CinemaBookingApp\lib" />
     </key>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -103,6 +131,7 @@
       <workItem from="1761117588730" duration="4000" />
       <workItem from="1761719920260" duration="310000" />
       <workItem from="1761720444803" duration="3981000" />
+      <workItem from="1763395820914" duration="7402000" />
     </task>
     <task id="LOCAL-00001" summary="đẩy cấu trúc bài">
       <created>1759846523145</created>

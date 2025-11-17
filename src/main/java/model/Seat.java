@@ -5,14 +5,14 @@ public abstract class Seat {
     protected int roomId;
     protected String row;
     protected int column;
-    protected String seatType;
+    protected int maLoaiGhe;
 
-    public Seat(int seatId, int roomId, String row, int column, String seatType) {
+    public Seat(int seatId, int roomId, String row, int column, int maLoaiGhe) {
         this.seatId = seatId;
         this.roomId = roomId;
         this.row = row;
         this.column = column;
-        this.seatType = seatType;
+        this.maLoaiGhe = maLoaiGhe;
     }
 
     public int getSeatId() {
@@ -31,16 +31,16 @@ public abstract class Seat {
         return column;
     }
 
-    public String getSeatType() {
-        return seatType;
+    public int getMaLoaiGhe() {
+        return maLoaiGhe;
     }
 
-    // Phương thức tính giá ghế — sẽ override ở lớp con
     public abstract double getPrice(double basePrice);
 
     @Override
     public String toString() {
+        String loaiGheStr = (maLoaiGhe == 2) ? "VIP" : "Thuong";
         return String.format("Ghế [Mã=%d, Phòng=%d, Hàng=%s, Cột=%d, Loại=%s]",
-                seatId, roomId, row, column, seatType);
+                seatId, roomId, row, column, loaiGheStr);
     }
 }

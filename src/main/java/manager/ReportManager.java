@@ -7,12 +7,12 @@ import java.sql.*;
 
 public class ReportManager {
 
-    // List booked seats for a specific showtime
     public void listBookedSeats(int showtimeId) throws DatabaseException {
         String sql = """
-            SELECT G.MaGhe, G.LoaiGhe, V.TrangThai
+            SELECT G.MaGhe, LG.TenLoaiGhe, V.TrangThai
             FROM Ve V
             JOIN Ghe G ON V.MaGhe = G.MaGhe
+            JOIN LoaiGhe LG ON G.MaLoaiGhe = LG.MaLoaiGhe
             WHERE V.MaSuat = ? AND V.TrangThai = N'DaThanhToan';
         """;
         try (Connection conn = DatabaseConnection.getConnection();
@@ -21,14 +21,13 @@ public class ReportManager {
             ResultSet rs = ps.executeQuery();
             System.out.println("Ghế đã đặt cho suất chiếu " + showtimeId + ":");
             while (rs.next()) {
-                System.out.println("- Ghế " + rs.getInt("MaGhe") + " (" + rs.getString("LoaiGhe") + ")");
+                System.out.println("- Ghế " + rs.getInt("MaGhe") + " (" + rs.getString("TenLoaiGhe") + ")");
             }
         } catch (SQLException e) {
             throw new DatabaseException("Error generating seat report");
         }
     }
 
-    // Total tickets sold by movie
     public void totalTicketsByMovie() throws DatabaseException {
         String sql = """
             SELECT P.TenPhim, COUNT(V.MaVe) AS SoVe
@@ -49,12 +48,14 @@ public class ReportManager {
         }
     }
 
-    // Monthly revenue
     public void monthlyRevenue() throws DatabaseException {
         String sql = """
-            SELECT MONTH(NgayLap) AS Thang, SUM(TongTien) AS DoanhThu
-            FROM HoaDon
-            GROUP BY MONTH(NgayLap)
+            SELECT MONTH(h.NgayLap) AS Thang, SUM(v.GiaVe) AS DoanhThu
+            FROM HoaDon h
+            JOIN ChiTietHoaDon cthd ON h.MaHD = cthd.MaHD
+            JOIN Ve v ON cthd.MaVe = v.MaVe
+            WHERE v.TrangThai = N'DaThanhToan'
+            GROUP BY MONTH(h.NgayLap)
             ORDER BY Thang;
         """;
         try (Connection conn = DatabaseConnection.getConnection();
@@ -69,10 +70,9 @@ public class ReportManager {
         }
     }
 
-    // Top 3 movies by revenue
     public void top3MoviesByRevenue() throws DatabaseException {
         String sql = """
-            SELECT TOP 3 P.TenPhim, SUM(V.GiaVe - (V.GiaVe * V.GiamGia / 100)) AS DoanhThu
+            SELECT TOP 3 P.TenPhim, SUM(V.GiaVe) AS DoanhThu
             FROM Ve V
             JOIN SuatChieu S ON V.MaSuat = S.MaSuat
             JOIN Phim P ON S.MaPhim = P.MaPhim

@@ -20,18 +20,18 @@ public class MovieDAO {
                 movies.add(new Movie(
                         rs.getInt("MaPhim"),
                         rs.getString("TenPhim"),
-                        rs.getString("TheLoai"),
                         rs.getInt("ThoiLuong"),
-                        rs.getString("DoTuoi"),
-                        rs.getDouble("GiaVeCoBan")
+                        rs.getDouble("GiaVeCoBan"),
+                        rs.getInt("MaTheLoai"),
+                        rs.getInt("MaDoTuoi")
                 ));
             }
-
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi lấy danh sách phim: " + e.getMessage());
         }
         return movies;
     }
+
     public Movie getMovieById(int id) throws DatabaseException {
         String sql = "SELECT * FROM Phim WHERE MaPhim = ?";
         Movie movie = null;
@@ -46,28 +46,29 @@ public class MovieDAO {
                 movie = new Movie(
                         rs.getInt("MaPhim"),
                         rs.getString("TenPhim"),
-                        rs.getString("TheLoai"),
                         rs.getInt("ThoiLuong"),
-                        rs.getString("DoTuoi"),
-                        rs.getDouble("GiaVeCoBan")
+                        rs.getDouble("GiaVeCoBan"),
+                        rs.getInt("MaTheLoai"),
+                        rs.getInt("MaDoTuoi")
                 );
             }
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi tìm phim: " + e.getMessage());
         }
-        return movie; // Trả về null nếu không tìm thấy
+        return movie;
     }
+
     public void addMovie(Movie m) throws DatabaseException {
-        String sql = "INSERT INTO Phim VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Phim (MaPhim, TenPhim, ThoiLuong, GiaVeCoBan, MaTheLoai, MaDoTuoi) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, m.getMovieId());
             ps.setString(2, m.getTitle());
-            ps.setString(3, m.getGenre());
-            ps.setInt(4, m.getDuration());
-            ps.setString(5, m.getAgeRating());
-            ps.setDouble(6, m.getBasePrice());
+            ps.setInt(3, m.getDuration());
+            ps.setDouble(4, m.getBasePrice());
+            ps.setInt(5, m.getMaTheLoai());
+            ps.setInt(6, m.getMaDoTuoi());
             ps.executeUpdate();
 
         } catch (SQLException e) {

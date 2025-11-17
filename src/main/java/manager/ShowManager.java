@@ -22,7 +22,7 @@ public class ShowManager {
             pstmt.setString(1, date);
             ResultSet rs = pstmt.executeQuery();
 
-            System.out.println("\n🎞 SUẤT CHIẾU NGÀY " + date + ":");
+            System.out.println("\nSUẤT CHIẾU NGÀY " + date + ":");
             while (rs.next()) {
                 System.out.printf("Mã suất: %d | Phim: %s | Phòng: %s | %s - %s\n",
                         rs.getInt("MaSuat"), rs.getString("TenPhim"),

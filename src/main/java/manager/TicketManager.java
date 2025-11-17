@@ -27,7 +27,7 @@ public class TicketManager {
             pstmt.setString(1, status);
             ResultSet rs = pstmt.executeQuery();
 
-            System.out.println(status.equals("DaThanhToan") ? "\n🎟 VÉ ĐÃ BÁN:" : "\n🕓 VÉ CHƯA THANH TOÁN:");
+            System.out.println(status.equals("DaThanhToan") ? "\n🎟 VÉ ĐÃ BÁN:" : "\nVÉ CHƯA THANH TOÁN:");
             while (rs.next()) {
                 System.out.printf("Mã vé: %d | Phim: %s | Phòng: %s | Ghế %s%d | Giá: %.0f\n",
                         rs.getInt("MaVe"), rs.getString("TenPhim"), rs.getString("TenPhong"),

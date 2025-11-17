@@ -12,30 +12,25 @@ import java.util.List;
 public class TicketDAO {
 
     public void addTicket(Ticket ticket) throws DatabaseException {
-        // Giả định bảng Ve có cột MaKH
-        String sql = "INSERT INTO Ve (MaVe, MaSuat, MaGhe, MaKH, GiaVe) VALUES (?, ?, ?, ?, ?)";
-
+        String sql = "INSERT INTO Ve (MaVe, MaSuat, MaGhe, GiaVe, GiamGia, TrangThai) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, ticket.getTicketId());
             ps.setInt(2, ticket.getShowtimeId());
             ps.setInt(3, ticket.getSeatId());
-            // Sửa: Dùng getCustomerId() để khớp với model Ticket.java
-            ps.setInt(4, ticket.getCustomerId());
-            ps.setDouble(5, ticket.getPrice());
-
+            ps.setDouble(4, ticket.getPrice());
+            ps.setDouble(5, 0);
+            ps.setString(6, ticket.getStatus());
             ps.executeUpdate();
-
         } catch (SQLException e) {
-            throw new DatabaseException("Lỗi khi thêm vé: " + e.getMessage());
+            throw new DatabaseException("Lỗi khi thêm vé (TicketDAO): " + e.getMessage());
         }
     }
 
     public List<Ticket> getTicketsByShowtimeId(int showtimeId) throws DatabaseException {
         List<Ticket> tickets = new ArrayList<>();
         String sql = "SELECT * FROM Ve WHERE MaSuat = ?";
-
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -43,17 +38,16 @@ public class TicketDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                // Sửa: Dùng constructor của Ticket.java (với customerId)
                 Ticket ticket = new Ticket(
                         rs.getInt("MaVe"),
                         rs.getInt("MaSuat"),
                         rs.getInt("MaGhe"),
-                        rs.getInt("MaKH"), // Giả định cột DB là MaKH
-                        rs.getDouble("GiaVe")
+                        0,
+                        rs.getDouble("GiaVe"),
+                        rs.getString("TrangThai")
                 );
                 tickets.add(ticket);
             }
-
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi lấy vé theo suất chiếu: " + e.getMessage());
         }
@@ -62,8 +56,11 @@ public class TicketDAO {
 
     public List<Ticket> getTicketsByCustomerId(int customerId) throws DatabaseException {
         List<Ticket> tickets = new ArrayList<>();
-        // Sửa: Truy vấn bằng MaKH thay vì MaHoaDon
-        String sql = "SELECT * FROM Ve WHERE MaKH = ?";
+        String sql = "SELECT v.* " +
+                "FROM Ve v " +
+                "JOIN ChiTietHoaDon cthd ON v.MaVe = cthd.MaVe " +
+                "JOIN HoaDon hd ON cthd.MaHD = hd.MaHD " +
+                "WHERE hd.MaKH = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -72,17 +69,16 @@ public class TicketDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                // Sửa: Dùng constructor của Ticket.java
                 Ticket ticket = new Ticket(
                         rs.getInt("MaVe"),
                         rs.getInt("MaSuat"),
                         rs.getInt("MaGhe"),
-                        rs.getInt("MaKH"),
-                        rs.getDouble("GiaVe")
+                        customerId,
+                        rs.getDouble("GiaVe"),
+                        rs.getString("TrangThai")
                 );
                 tickets.add(ticket);
             }
-
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi lấy vé theo khách hàng: " + e.getMessage());
         }

@@ -22,10 +22,9 @@ public class CustomerDAO {
                         rs.getString("HoTen"),
                         rs.getString("SDT"),
                         rs.getString("Email"),
-                        rs.getString("LoaiThanhVien")
+                        rs.getInt("MaLoaiTV")
                 ));
             }
-
         } catch (SQLException e) {
             throw new DatabaseException("Lỗi khi lấy danh sách khách hàng: " + e.getMessage());
         }
@@ -33,7 +32,7 @@ public class CustomerDAO {
     }
 
     public void addCustomer(Customer c) throws DatabaseException {
-        String sql = "INSERT INTO KhachHang VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO KhachHang (MaKH, HoTen, SDT, Email, MaLoaiTV) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -41,7 +40,7 @@ public class CustomerDAO {
             ps.setString(2, c.getFullName());
             ps.setString(3, c.getPhone());
             ps.setString(4, c.getEmail());
-            ps.setString(5, c.getMemberType());
+            ps.setInt(5, c.getMaLoaiTV());
             ps.executeUpdate();
 
         } catch (SQLException e) {

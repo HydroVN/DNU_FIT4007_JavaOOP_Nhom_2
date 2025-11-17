@@ -6,13 +6,15 @@ public class Ticket {
     private int seatId;
     private int customerId;
     private double price;
+    private String status;
 
-    public Ticket(int ticketId, int showtimeId, int seatId, int customerId, double price) {
+    public Ticket(int ticketId, int showtimeId, int seatId, int customerId, double price, String status) {
         this.ticketId = ticketId;
         this.showtimeId = showtimeId;
         this.seatId = seatId;
         this.customerId = customerId;
         this.price = price;
+        this.status = status;
     }
 
     public int getTicketId() {
@@ -35,6 +37,10 @@ public class Ticket {
         return price;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
@@ -43,6 +49,7 @@ public class Ticket {
                 ", seatId=" + seatId +
                 ", customerId=" + customerId +
                 ", price=" + price +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
