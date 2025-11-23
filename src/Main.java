@@ -46,7 +46,7 @@ public class Main {
             System.out.println("13. Top 3 phim có doanh thu cao nhất ");
             System.out.println("14. Danh sách ghế đã đặt của 1 suất chiếu");
             System.out.println("15. Tạo Hóa Đơn (Đặt vé)");
-            System.out.println("16. Xóa Hóa Đơn (Để hủy vé/xóa suất chiếu)"); // <--- Thêm dòng này
+            System.out.println("16. Xóa Hóa Đơn (Để hủy vé/xóa suất chiếu)");
             System.out.println("0. Thoát chương trình");
             System.out.print("Chọn chức năng: ");
 
