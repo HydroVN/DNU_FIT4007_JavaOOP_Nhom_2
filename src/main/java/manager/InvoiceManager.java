@@ -1,6 +1,7 @@
 package main.java.manager;
 import main.java.dao.*;
 import java.sql.*;
+import main.java.exception.*;
 import java.util.Scanner;
 
 public class InvoiceManager {
@@ -53,6 +54,30 @@ public class InvoiceManager {
 
         } catch (SQLException e) {
             System.out.println("Lỗi doanh thu: " + e.getMessage());
+        }
+    }
+    public static void deleteInvoiceProcess(Scanner sc) {
+        System.out.print("Nhập Mã Hóa Đơn cần xóa: ");
+        try {
+            int invoiceId = Integer.parseInt(sc.nextLine());
+
+            // Xác nhận lại cho chắc chắn
+            System.out.print("Bạn có chắc muốn xóa Hóa đơn " + invoiceId + " và toàn bộ Vé đi kèm không? (y/n): ");
+            String confirm = sc.nextLine();
+
+            if (confirm.equalsIgnoreCase("y")) {
+                InvoiceDAO invoiceDAO = new InvoiceDAO();
+                invoiceDAO.deleteInvoice(invoiceId);
+                System.out.println("Đã xóa thành công Hóa đơn " + invoiceId + " và các vé liên quan.");
+                System.out.println("Bây giờ bạn có thể xóa Suất chiếu tương ứng nếu muốn.");
+            } else {
+                System.out.println("Đã hủy thao tác xóa.");
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Mã hóa đơn không hợp lệ!");
+        } catch (DatabaseException e) {
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 }

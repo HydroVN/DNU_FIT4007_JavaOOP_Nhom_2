@@ -82,4 +82,71 @@ public class InvoiceDAO {
         }
         return invoices;
     }
+    public void deleteInvoice(int invoiceId) throws DatabaseException {
+        Connection conn = null;
+        String sqlGetTickets = "SELECT MaVe FROM ChiTietHoaDon WHERE MaHD = ?";
+        String sqlDeleteDetails = "DELETE FROM ChiTietHoaDon WHERE MaHD = ?";
+        String sqlDeleteTickets = "DELETE FROM Ve WHERE MaVe = ?";
+        String sqlDeleteInvoice = "DELETE FROM HoaDon WHERE MaHD = ?";
+
+        try {
+            conn = DatabaseConnection.getConnection();
+            conn.setAutoCommit(false); // Bắt đầu giao dịch (Transaction)
+
+            // BƯỚC 1: Lấy danh sách Mã Vé để chuẩn bị xóa
+            List<Integer> ticketIds = new ArrayList<>();
+            try (PreparedStatement ps = conn.prepareStatement(sqlGetTickets)) {
+                ps.setInt(1, invoiceId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    ticketIds.add(rs.getInt("MaVe"));
+                }
+            }
+
+            // BƯỚC 2: Xóa liên kết trong ChiTietHoaDon trước
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDetails)) {
+                ps.setInt(1, invoiceId);
+                ps.executeUpdate();
+            }
+
+            // BƯỚC 3: Xóa từng Vé trong bảng Ve (QUAN TRỌNG: Để giải phóng ghế)
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteTickets)) {
+                for (int maVe : ticketIds) {
+                    ps.setInt(1, maVe);
+                    ps.executeUpdate();
+                }
+            }
+
+            // BƯỚC 4: Cuối cùng xóa Hóa Đơn
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteInvoice)) {
+                ps.setInt(1, invoiceId);
+                int rows = ps.executeUpdate();
+                if (rows == 0) {
+                    throw new SQLException("Không tìm thấy hóa đơn có mã: " + invoiceId);
+                }
+            }
+
+            conn.commit(); // Xác nhận lưu thay đổi
+            // System.out.println("Đã xóa Hóa đơn " + invoiceId + " và " + ticketIds.size() + " vé đi kèm.");
+
+        } catch (SQLException e) {
+            if (conn != null) {
+                try {
+                    conn.rollback(); // Nếu lỗi thì hoàn tác lại tất cả
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            throw new DatabaseException("Lỗi khi xóa hóa đơn và vé: " + e.getMessage());
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.setAutoCommit(true);
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

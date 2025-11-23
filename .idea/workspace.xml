@@ -4,48 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1a89d8b-39aa-4460-9789-9675793c35cf" name="Changes" comment="Sửa lại toàn bộ cấu trúc SQL">
+    <list default="true" id="a1a89d8b-39aa-4460-9789-9675793c35cf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InvoiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InvoiceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/InvoiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/InvoiceManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Van" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;HydroVN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/HydroVN/DNU_FIT4007_JavaOOP_Nhom_2.git&quot;,
-    &quot;accountId&quot;: &quot;9c82ced9-f09f-4025-96d0-87cd27ea58b3&quot;
-  }
-}</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 1
-}</component>
   <component name="ProjectId" id="33k1m8fL1qIBAbSckxv1tl0f3yc" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -59,44 +37,13 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "#2 on Van",
-    "jdk.selected.JAVA_MODULE": "19",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/New folder/DNU_FIT4007_JavaOOP_Nhom_2",
+    "git-widget-placeholder": "Van",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="main.java.dao" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\CinemaBookingApp_OOP_BTL\CinemaBookingApp\lib" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -105,64 +52,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759846411663</updated>
-      <workItem from="1760621264949" duration="5272000" />
-      <workItem from="1760627453471" duration="217000" />
-      <workItem from="1761117588730" duration="4000" />
-      <workItem from="1761719920260" duration="310000" />
-      <workItem from="1761720444803" duration="3981000" />
-      <workItem from="1763395820914" duration="9299000" />
     </task>
-    <task id="LOCAL-00001" summary="đẩy cấu trúc bài">
-      <created>1759846523145</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1759846523145</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Test Database SQL Server">
-      <created>1759852843506</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1759852843506</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Cập nhật ngoại lệ">
-      <option name="closed" value="true" />
-      <created>1760622014357</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1760622014357</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Cập nhật DAO, model, manager và test demo">
-      <option name="closed" value="true" />
-      <created>1760626622115</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1760626622115</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Sửa lại toàn bộ cấu trúc SQL">
-      <option name="closed" value="true" />
-      <created>1763407363490</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1763407363490</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Sửa lại toàn bộ cấu trúc SQL">
-      <option name="closed" value="true" />
-      <created>1763407550132</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1763407550132</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -174,13 +65,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="đẩy cấu trúc bài" />
-    <MESSAGE value="Test Database SQL Server" />
-    <MESSAGE value="Cập nhật ngoại lệ" />
-    <MESSAGE value="Cập nhật DAO, model, manager và test demo" />
-    <MESSAGE value="Sửa lại toàn bộ cấu trúc SQL" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sửa lại toàn bộ cấu trúc SQL" />
   </component>
 </project>

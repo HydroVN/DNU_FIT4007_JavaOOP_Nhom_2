@@ -46,6 +46,7 @@ public class Main {
             System.out.println("13. Top 3 phim có doanh thu cao nhất ");
             System.out.println("14. Danh sách ghế đã đặt của 1 suất chiếu");
             System.out.println("15. Tạo Hóa Đơn (Đặt vé)");
+            System.out.println("16. Xóa Hóa Đơn (Để hủy vé/xóa suất chiếu)"); // <--- Thêm dòng này
             System.out.println("0. Thoát chương trình");
             System.out.print("Chọn chức năng: ");
 
@@ -247,6 +248,9 @@ public class Main {
                         }
 
                         BookingManager.createBooking(newInvoiceId, customerId, showtimeId, seatIds, ticketIds);
+                    }
+                    case 16 -> {
+                        main.java.manager.InvoiceManager.deleteInvoiceProcess(sc);
                     }
                     case 0 -> {
                         System.out.println("Thoát chương trình. Hẹn gặp lại!");
