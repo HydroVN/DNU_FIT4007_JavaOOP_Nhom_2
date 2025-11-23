@@ -1,13 +1,9 @@
 package main.java.model;
-
-import java.util.Date;
-
 public class Movie {
     private int movieId;
     private String title;
     private int duration;
     private double basePrice;
-
     private int maTheLoai;
     private int maDoTuoi;
 
